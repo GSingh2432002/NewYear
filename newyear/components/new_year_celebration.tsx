@@ -5,7 +5,7 @@ import { AnimatedBackground } from "./animated_background";
 import AnimatedGitHub from "./animated_github";
 
 export default function NewYearCelebration() {
-  const [currentYear, setCurrentYear] = useState(new Date().getFullYear());
+  const currentYear = new Date().getFullYear();
   const [message, setMessage] = useState(`Happy New Year ${currentYear}`);
 
   useEffect(() => {
@@ -13,9 +13,9 @@ export default function NewYearCelebration() {
       const year = new Date().getFullYear();
       if (year === 2025) {
         setMessage("Happy New Year 2025");
-        clearInterval(interval); // Stop the interval agr 2025 ho jaye
+        clearInterval(interval);
       }
-    }, 60000); // Interval of 1 minute
+    }, 60000);
     return () => clearInterval(interval);
   }, []);
 
